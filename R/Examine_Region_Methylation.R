@@ -161,7 +161,7 @@ getPCs <- function(meth, mod = matrix(1, nrow = ncol(meth), ncol = 1),
         meth_t <- t(meth)
         meth_t_centered <- scale(meth_t, center = TRUE, scale = FALSE)
         ss <- svd(meth_t_centered)
-        PCs <- ss$u[, 1:n.pc]
+        PCs <- ss$u[, 1:n.pc, drop=FALSE]
         dimnames(PCs) <- list(dimnames(meth_t)[[1]], paste0("PC_", 1:n.pc))
         if(save){
                 if(verbose){
