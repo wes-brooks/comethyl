@@ -244,6 +244,7 @@ enrichModule <- function(regions, module = NULL,
                                        "bonferroni", "BH", "BY", "none"),
                          min_region_hits = 2, pvalue_threshold = 0.01,
                          save = TRUE, file = "Module_Enrichment_Results.txt",
+                         request_interval = 2,
                          verbose =  TRUE){
         if(!is.null(module)){
                 if(verbose){
@@ -286,7 +287,7 @@ enrichModule <- function(regions, module = NULL,
                               adv_span = adv_span,
                               adv_twoDistance = adv_twoDistance,
                               adv_oneDistance = adv_oneDistance,
-                              request_interval = 0, version = version)
+                              request_interval = request_interval, version = version)
         if(verbose){
                 message("[enrichModule] Getting results and adjusting p-values using the ",
                         adjMethod, " method")
